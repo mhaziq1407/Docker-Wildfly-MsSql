@@ -1,4 +1,4 @@
-FROM docker.io/jboss/wildfly:10.1.0.Final
+FROM docker.io/jboss/wildfly:22.0.0.Final
 
 ENV MSSQL_JDBC_VERSION 6.2.1.jre8
 
