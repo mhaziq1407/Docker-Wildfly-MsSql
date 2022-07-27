@@ -1,5 +1,10 @@
 FROM docker.io/jboss/wildfly:22.0.0.Final
 
+# create user
+RUN /opt/jboss/wildfly/bin/add-user.sh admin Dfs1234@ --silent
+# enable management console
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+
 
 ENV MSSQL_JDBC_VERSION 6.2.1.jre8
 
