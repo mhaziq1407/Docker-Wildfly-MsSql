@@ -1,10 +1,5 @@
 FROM docker.io/jboss/wildfly:22.0.0.Final
 
-RUN apk --update add openssh curl \
-  && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
-  && echo "root:root" | chpasswd \
-  && rm -rf /var/cache/apk/*
-COPY rootfs /
 
 ENV MSSQL_JDBC_VERSION 6.2.1.jre8
 
