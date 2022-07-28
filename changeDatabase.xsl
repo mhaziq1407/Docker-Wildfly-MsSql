@@ -4,7 +4,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:ds="urn:jboss:domain:15.0">
   
-    <xsl:template match="///ds:subsystem/ds:datasources">
+    <xsl:template match="//subsystem/datasources">
         <xsl:copy>
             <ds:datasource jndi-name="java:/jdbc/TMLI" enabled="true" use-java-context="true"
                            pool-name="jdbc/TMLI" use-ccm="true">
