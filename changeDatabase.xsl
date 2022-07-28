@@ -6,7 +6,7 @@
                 xmlns:ds="urn:jboss:domain:undertow:11.0">
                 xmlns:ds="socket-binding-group">
   
-    <xsl:template match="//ds:server name= default-server">
+    <xsl:template match="//ds:http-listener">
         <xsl:copy>
             <ds:http-listener redirect-socket="proxy-https" proxy-address-forwarding="true"/>
          <xsl:apply-templates select="node()|@*"/>
