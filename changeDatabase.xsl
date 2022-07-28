@@ -8,14 +8,14 @@
 
     <xsl:template match="//ds:subsystem/ds:datasources">
         <xsl:copy>
-            <ds:datasource jndi-name="java:/jdbc/TMLI" enabled="true" use-java-context="true"
+            <ds:datasource jndi-name="java:jboss/datasources/MssqlDS" enabled="true" use-java-context="true"
                            pool-name="MssqlDS" use-ccm="true">
-                <ds:connection-url>jdbc:sqlserver://${env.MSSQL_HOST:192.168.0.200}:${env.MSSQL_PORT:1433};database=${env.MSSQL_DATABASE:TMLIQA1}
+                <ds:connection-url>jdbc:sqlserver://${env.MSSQL_HOST:localhost}:${env.MSSQL_PORT:1433};database=${env.MSSQL_DATABASE:master}
                 </ds:connection-url>
                 <ds:driver>mssql</ds:driver>
                 <ds:security>
-                    <ds:user-name>${env.MSSQL_USERNAME:dfs}</ds:user-name>
-                    <ds:password>${env.MSSQL_PASSWORD:dfs123}</ds:password>
+                    <ds:user-name>${env.MSSQL_USERNAME:sa}</ds:user-name>
+                    <ds:password>${env.MSSQL_PASSWORD:password}</ds:password>
                 </ds:security>
                 <ds:validation>
                     <!--<ds:valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker"></ds:valid-connection-checker>-->
