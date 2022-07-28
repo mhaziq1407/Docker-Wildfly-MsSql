@@ -8,8 +8,8 @@
 
     <xsl:template match="//ds:subsystem/ds:datasources">
         <xsl:copy>
-            <ds:datasource jndi-name="java:/jdbc/TPA" enabled="true" use-java-context="true"
-                           pool-name="jdbc/TPA" use-ccm="true">
+            <ds:datasource jndi-name="java:/jdbc/TMLI" enabled="true" use-java-context="true"
+                           pool-name="jdbc/TMLI" use-ccm="true">
                 <ds:connection-url>jdbc:sqlserver://${env.MSSQL_HOST:localhost}:${env.MSSQL_PORT:1433};database=${env.MSSQL_DATABASE:master}
                 </ds:connection-url>
                 <ds:driver>mssql</ds:driver>
