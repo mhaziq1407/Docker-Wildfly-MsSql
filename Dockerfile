@@ -1,4 +1,4 @@
-FROM docker.io/jboss/wildfly:10.1.0.Final
+FROM docker.io/jboss/wildfly:22.0.1.Final
 
 # create user
 RUN /opt/jboss/wildfly/bin/add-user.sh admin Dfs1234@ --silent
