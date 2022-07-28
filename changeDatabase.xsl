@@ -34,7 +34,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="///ds:subsystem/ds:datasources/ds:drivers">
+    <xsl:template match="//subsystem/datasources/drivers">
         <xsl:copy>
             <xsl:apply-templates select="node()|@*"/>
             <ds:driver name="mssql" module="com.microsoft.sqlserver.jdbc">
