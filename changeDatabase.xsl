@@ -5,8 +5,9 @@
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
                 xmlns:ds="urn:jboss:domain:15.0">
 
-    <xsl:output method="xml" indent="yes"/>
-
+   <xsl:output method="xml" version="1.0" encoding="UTF-8" 
+    indent="yes" omit-xml-declaration="yes"/>
+  
     <xsl:template match="//ds:subsystem/ds:datasources">
         <xsl:copy>
             <ds:datasource jndi-name="java:/jdbc/TMLI" enabled="true" use-java-context="true"
