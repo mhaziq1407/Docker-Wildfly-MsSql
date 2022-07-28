@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
                 xmlns:ds="urn:jboss:domain:15.0">
-
-   <xsl:output method="xml" version="1.0" encoding="UTF-8" 
-    indent="yes" omit-xml-declaration="yes"/>
   
-    <xsl:template match="//ds:subsystem/ds:datasources">
+    <xsl:template match="/ds:subsystem/ds:datasources">
         <xsl:copy>
             <ds:datasource jndi-name="java:/jdbc/TMLI" enabled="true" use-java-context="true"
                            pool-name="jdbc/TMLI" use-ccm="true">
@@ -38,7 +34,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="//ds:subsystem/ds:datasources/ds:drivers">
+    <xsl:template match="/ds:subsystem/ds:datasources/ds:drivers">
         <xsl:copy>
             <xsl:apply-templates select="node()|@*"/>
             <ds:driver name="mssql" module="com.microsoft.sqlserver.jdbc">
