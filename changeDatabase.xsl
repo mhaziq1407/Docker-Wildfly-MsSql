@@ -3,6 +3,23 @@
 <xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:ds="urn:jboss:domain:datasources:6.0">
+                xmlns:ds="urn:jboss:domain:undertow:11.0">
+                xmlns:ds="socket-binding-group">
+  
+    <xsl:template match="//ds:server/ds:http-listener">
+        <xsl:copy>
+            <ds:redirect-socket="proxy-https" proxy-address-forwarding="true">
+         <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
+    </xsl:template>
+     
+    <xsl:template match="ds:socket-binding">
+        <xsl:copy>
+            <ds:socket-binding name="proxy-https" port="443">
+         <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
+    </xsl:template>  
+     
   
     <xsl:template match="//ds:subsystem/ds:datasources">
         <xsl:copy>
