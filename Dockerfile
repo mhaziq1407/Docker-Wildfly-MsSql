@@ -6,7 +6,7 @@ RUN /opt/jboss/wildfly/bin/add-user.sh admin Dfs1234@ --silent
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
 
-ENV MSSQL_JDBC_VERSION 6.2.1.jre8
+ENV MSSQL_JDBC_VERSION 7.4.1.jre8
 
 ADD changeDatabase.xsl /opt/jboss/wildfly/
 RUN java -jar /usr/share/java/saxon.jar -s:/opt/jboss/wildfly/standalone/configuration/standalone.xml -xsl:/opt/jboss/wildfly/changeDatabase.xsl -o:/opt/jboss/wildfly/standalone/configuration/standalone.xml; java -jar /usr/share/java/saxon.jar -s:/opt/jboss/wildfly/standalone/configuration/standalone-ha.xml -xsl:/opt/jboss/wildfly/changeDatabase.xsl -o:/opt/jboss/wildfly/standalone/configuration/standalone-ha.xml; rm /opt/jboss/wildfly/changeDatabase.xsl
