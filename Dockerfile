@@ -10,7 +10,11 @@ ENV MSSQL_JDBC_VERSION 7.4.1.jre8
 
 RUN rm /opt/jboss/wildfly/standalone/configuration/standalone.xml
 
+RUN rm /opt/jboss/wildfly/bin/standalone.conf
+
 ADD standalone.xml /opt/jboss/wildfly/standalone/configuration/
+
+ADD standalone.conf /opt/jboss/wildfly/bin/
 
 
 RUN mkdir -p /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/jdbc/main && \
