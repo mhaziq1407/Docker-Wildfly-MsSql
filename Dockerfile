@@ -23,13 +23,6 @@ curl -L https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/$MSSQL
 
 ADD module.xml /opt/jboss/wildfly/modules/system/layers/base/com/microsoft/sqlserver/jdbc/main/
 
-RUN apk --update add openssh curl \
-  && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
-  && echo "root:root" | chpasswd \
-  && rm -rf /var/cache/apk/*
-COPY rootfs /
-
-CMD ["/sshd"]
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 #ADD changeProxy.xsl /opt/jboss/wildfly/
